@@ -37,15 +37,15 @@ The original dataset was filtered to include only rows where the `position` colu
 ### Univariate Analysis
 
 This pie chart shows the distribution of team victories and losses following the acquisition of the first dragon. Looking at the distribution, it appears that teams have a slightly higher likelihood of winning when securing the first dragon.
-<iframe src="assets/univariate_analysis_drag.html" width=600 height=400 frameBorder=0></iframe>
+<iframe src="assets/univariate_analysis_drag.html" width=650 height=450 frameBorder=0></iframe>
 
 This pie chart shows the distribution of team victories and losses following the acquisition of the first herald. Similarly, it appears that teams have a slightly higher likelihood of winning when securing the first herald.
-<iframe src="assets/univariate_analysis_herald.html" width=600 height=400 frameBorder=0></iframe>
+<iframe src="assets/univariate_analysis_herald.html" width=650 height=450 frameBorder=0></iframe>
 
 ### Bivariate Analysis
 
 This multiple boxplot graph visualizes the game duration distributions for two distinct outcomes: victories and defeats. The plot is divided by the type of first objective achieved in League of Legends matches, offering a comparative analysis of how securing different early-game objectives influences the overall length of matches. Teams that secure both early-game objectives tend to achieve victories with the shortest game times. In instances where only the first herald or only the first dragon was obtained, teams securing the first herald experienced slightly shorter game durations for victories.
-<iframe src="assets/univariate_analysis_herald.html" width=600 height=400 frameBorder=0></iframe>
+<iframe src="assets/bivariate_analysis.html" width=800 height=450 frameBorder=0></iframe>
 
 ### Interesting Aggregates
 
@@ -73,12 +73,12 @@ I do not believe that there are any NMAR missingness patterns for the values in 
 **`firstherald` is MAR dependent on `patch`.**
 Knowing that the missingness of team statistics is dependent on `league`, it is reasonable to speculate that it is also missing dependent on `patch`. The patch that teams across leagues play on differs and is independent from one another. With a significance level of 0.05 and using TVD as the test statistic, the resulting p-value = 0. This p-value indicates that the missingness of `firstherald` is MAR dependent on `patch`. 
 
-<iframe src="assets/empirical_TVD_MAR.html" width=1000 height=400 frameBorder=0></iframe>
+<iframe src="assets/empirical_TVD_MAR.html" width=1050 height=450 frameBorder=0></iframe>
 
 **`firstherald` is MCAR dependent on `inhibitors`.**
 To determine whether `firstherald ` is MAR or MCAR dependent on the number of `inhibitors` taken by a team, a significance level of 0.05 was set and the TVD was used as the test statistic. With a calculated p-value = 0.2754, it can be concluded that the missingness of `firstherald` is MCAR dependent on `inhibitors`. 
 
-<iframe src="assets/empirical_TVD_MCAR.html" width=1000 height=400 frameBorder=0></iframe>
+<iframe src="assets/empirical_TVD_MCAR.html" width=1050 height=450 frameBorder=0></iframe>
 
 ## Hypothesis Testing
 
@@ -95,7 +95,7 @@ To revisit, the goal of this analysis is to analyze the importance of early-game
 
 The plot below shows the distribution of TVDs for 5,000 simulations. 
 
-<iframe src="assets/permutation_test.html" width=600 height=400 frameBorder=0></iframe>
+<iframe src="assets/permutation_test.html" width=1050 height=450 frameBorder=0></iframe>
 
 - **Significance level:** α = 0.05
 - **Observed p-value:** p = 0.2524
