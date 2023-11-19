@@ -23,9 +23,23 @@ The dataset contains match information from the LCS, LEC, LCK, LPL, and various 
 
 ## Cleaning and Exploratory Data Analysis
 
+The original dataset was filtered to include only rows where the `position` column is labeled as `team`.  This step ensures that only the team-level statistics are retained and individual player daya is excluded. A subset of relevant columns were selected for analysis, including `gameid`, `league`, `gamelength`, `result`, `firstdragon`, and `firsthearld`. Noting that NaN values in `firstdragon` and `firstheard` columns should not be filled with 0 or False, since the missing values do not imply that the objective was not taken, these two columns were converted to boolean values based on the condition that the values are not NaN. The `result` column was transforms to represent wins as "Victory" and losses as "Defeat for better interpretability. 
+**The first 5 rows of the DataFrame are shown below:**
+|    | gameid                | league   |   gamelength | result   |   firstdragon |   firstherald |
+|---:|:----------------------|:---------|-------------:|:---------|--------------:|--------------:|
+|  0 | ESPORTSTMNT01_2690210 | LCKC     |         1713 | Defeat   |             0 |             1 |
+|  1 | ESPORTSTMNT01_2690210 | LCKC     |         1713 | Victory  |             1 |             0 |
+|  2 | ESPORTSTMNT01_2690219 | LCKC     |         2114 | Defeat   |             0 |             1 |
+|  3 | ESPORTSTMNT01_2690219 | LCKC     |         2114 | Victory  |             1 |             0 |
+|  4 | 8401-8401_game_1      | LPL      |         1365 | Victory  |           nan |           nan |
+
 ### Univariate Analysis
 
+This pie chart shows that teams are slightly more likely to win when obtaining the first dragon. 
+
 ### Bivariate Analysis
+
+This pie chart shows that teams are slightly more likely to win when obtaining the first hearld. 
 
 ## Assessment of Missingness
 
