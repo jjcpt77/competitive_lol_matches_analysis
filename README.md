@@ -23,7 +23,7 @@ The dataset used to investigate the topic can be found [here](https://oracleseli
 
 ## Cleaning and Exploratory Data Analysis
 
-The original dataset was filtered to include only rows where the `position` column is labeled as `team`.  This step ensures that only the team-level statistics are retained and individual player daya is excluded. A subset of relevant columns were selected for analysis, including `gameid`, `league`, `gamelength`, `result`, `firstdragon`, and `firsthearld`. Noting that NaN values in `firstdragon` and `firstheard` columns should not be filled with 0 or False, since the missing values do not imply that the objective was not taken, these two columns were converted to boolean values based on the condition that the values are not NaN. The `result` column was transforms to represent wins as "Victory" and losses as "Defeat for better interpretability. 
+The original dataset was filtered to include only rows where the `position` column is labeled as `team`.  This step ensures that only the team-level statistics are retained and individual player data is excluded. A subset of relevant columns were selected for analysis, including `gameid`, `league`, `gamelength`, `result`, `firstdragon`, and `firsthearld`. Noting that NaN values in `firstdragon` and `firstheard` columns should not be filled with 0 or False, since the missing values do not imply that the objective was not taken, these two columns were converted to boolean values based on the condition that the values are not NaN. The `result` column was transformed to represent wins as "Victory" and losses as "Defeat" for better interpretability. 
 **The first 5 rows of the DataFrame are shown below:**
 
 | gameid                | league   |   gamelength | result   |   firstdragon |   firstherald |
@@ -66,7 +66,7 @@ This table presents the win rates of teams based on the acquisition of specific 
 
 ### NMAR Analysis
 
-I do not believe that there are any NMAR missingness patterns for the values in the dataset.  Since the completeness of each row in the dataset is explicitly labeled as either `complete` or `partial`, rows with missing values can easily be isolated. For rows labeled `complete`, missing values in the corresponding columns are MD and MAR dependent on `position`. Since some columns are dedicated to team statistics and others to player statistics, their missingness is inherently tied to the 'position' column and is missing by choice of the author of the dataset. In instances where the rows are partially complete, the missing team statistics specifically pertain to the Chinese leagues, indicating that missingness, in this case, is MAR dependent on `league`.
+I do not believe that there are any NMAR missingness patterns for the values in the dataset.  Since the completeness of each row in the dataset is explicitly labeled as either `complete` or `partial`, rows with missing values can easily be isolated. For rows labeled `complete`, missing values in the corresponding columns are MD and MAR dependent on `position`. Since some columns are dedicated to team statistics and others to player statistics, their missingness is inherently tied to the `position` column and is missing by choice of the author of the dataset. In instances where the rows are partially complete, the missing team statistics specifically pertain to the Chinese leagues, indicating that missingness, in this case, is MAR dependent on `league`.
 
 ### Missingness Dependency
 
